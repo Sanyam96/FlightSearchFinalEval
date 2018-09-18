@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,6 +26,15 @@ public class FlightController extends RestResponseHandler {
     public ResponseEntity<ResponseModel<List<FlightDTO>>> getAllFlights() {
         List<FlightDTO> flights = flightService.getAllFlights();
         return super.responseStandardizer(flights);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/flights/search", produces = "application/json")
+    public ResponseEntity<ResponseModel<Object>> getSearchedFlights(
+            @RequestParam(required = false, name = "nextSearchId", defaultValue = "0") long nextSearchId,
+            @RequestParam(required = false, name = "size", defaultValue = "10") int size,
+            @RequestParam(required = false, name = "isTotalCountRequired", defaultValue = "true") boolean isTotalCountRequired
+    ) {
+        return super.responseStandardizer(flightService.getFlightResults(nextSearchId, size, isTotalCountRequired));
     }
 
 }

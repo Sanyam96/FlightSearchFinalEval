@@ -13,7 +13,7 @@ public class Flight {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "flight_number")
     private String flightNumber;
@@ -47,11 +47,11 @@ public class Flight {
      * Getters and Setters
      */
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
