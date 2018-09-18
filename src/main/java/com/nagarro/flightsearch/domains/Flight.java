@@ -19,7 +19,7 @@ public class Flight {
     private String flightNumber;
 
     @Column(name = "departure_location")
-    private String departureLocation;
+        private String departureLocation;
 
     @Column(name = "arrival_location")
     private String arrivalLocation;

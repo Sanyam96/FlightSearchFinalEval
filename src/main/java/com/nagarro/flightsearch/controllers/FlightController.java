@@ -37,4 +37,18 @@ public class FlightController extends RestResponseHandler {
         return super.responseStandardizer(flightService.getFlightResults(nextSearchId, size, isTotalCountRequired));
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/flights/search/params", produces = "application/json")
+    public ResponseEntity<ResponseModel<Object>> getSearchedFlightsAccToParams(
+            @RequestParam(required = false, name = "nextSearchId", defaultValue = "0") long nextSearchId,
+            @RequestParam(required = false, name = "size", defaultValue = "3") int size,
+            @RequestParam(required = false, name = "isTotalCountRequired", defaultValue = "true") boolean isTotalCountRequired,
+            @RequestParam(required = true, name = "depLocation") String depLocation,
+            @RequestParam(required = true, name = "arrLocation") String arrLocation,
+            @RequestParam(required = true, name = "flightDate") String flightDate,
+            @RequestParam(required = true, name = "flightClass") String flightClass,
+            @RequestParam(required = false, name = "airline") String airline
+    ) {
+        return super.responseStandardizer(flightService.getsearchFlightResults(nextSearchId, size, isTotalCountRequired, depLocation, arrLocation, flightDate, flightClass, airline));
+    }
+
 }

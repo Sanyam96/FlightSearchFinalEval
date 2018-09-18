@@ -7,35 +7,35 @@ import java.util.List;
  */
 public class FlightsResponseDTO {
 
-    private List<FlightDTO> transactionList;
+    private List<FlightDTO> flightList;
 
-    private long nextTransactionId;
+    private long nextSearchFlightId;
 
     private Integer totalCount;
 
     public FlightsResponseDTO() {
     }
 
-    public FlightsResponseDTO(List<FlightDTO> transactionList, long nextTransactionId, Integer totalCount) {
-        this.transactionList = transactionList;
-        this.nextTransactionId = nextTransactionId;
+    public FlightsResponseDTO(List<FlightDTO> flightList, long nextSearchFlightId, Integer totalCount) {
+        this.flightList = flightList;
+        this.nextSearchFlightId = nextSearchFlightId;
         this.totalCount = totalCount;
     }
 
-    public List<FlightDTO> getTransactionList() {
-        return transactionList;
+    public List<FlightDTO> getFlightList() {
+        return flightList;
     }
 
-    public void setTransactionList(List<FlightDTO> transactionList) {
-        this.transactionList = transactionList;
+    public void setFlightList(List<FlightDTO> flightList) {
+        this.flightList = flightList;
     }
 
-    public long getNextTransactionId() {
-        return nextTransactionId;
+    public long getNextSearchFlightId() {
+        return nextSearchFlightId;
     }
 
-    public void setNextTransactionId(long nextTransactionId) {
-        this.nextTransactionId = nextTransactionId;
+    public void setNextSearchFlightId(long nextSearchFlightId) {
+        this.nextSearchFlightId = nextSearchFlightId;
     }
 
     public Integer getTotalCount() {
@@ -49,8 +49,8 @@ public class FlightsResponseDTO {
     @Override
     public String toString() {
         return "FlightsResponseDTO{" +
-                "transactionList=" + transactionList +
-                ", nextTransactionId=" + nextTransactionId +
+                "flightList=" + flightList +
+                ", nextSearchFlightId=" + nextSearchFlightId +
                 ", totalCount=" + totalCount +
                 '}';
     }
